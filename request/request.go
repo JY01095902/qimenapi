@@ -38,10 +38,10 @@ func newBody(config Config, data interface{}) body {
 func (b body) EncodeToString() string {
 	str := ""
 	for k, v := range b {
-		str += k + "=" + v
+		str += k + "=" + v + "&"
 	}
 
-	return url.QueryEscape(str)
+	return url.QueryEscape(str[:len(str)-1])
 }
 
 type Config struct {
