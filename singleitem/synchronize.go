@@ -3,14 +3,14 @@ package singleitem
 import (
 	"fmt"
 
-	"github.com/jy01095902/topapi/request"
+	"github.com/jy01095902/qimenapi/request"
 )
 
 type SynchronizeRequest struct {
-	BaseURL   string
-	AppKey    string
-	OwnerCode string // 货主编码
-	Data      struct {
+	BaseURL            string
+	AppKey             string
+	LogisticProviderId string // 货主编码
+	Data               struct {
 		ActionType    string `json:"actionType"`
 		WarehouseCode string `json:"warehouseCode"`
 		OwnerCode     string `json:"ownerCode"`
@@ -37,7 +37,7 @@ func Synchronize(req SynchronizeRequest) (SynchronizeResponse, error) {
 		AppKey:             req.AppKey,
 		AppSecret:          "",
 		MsgType:            "taobao.qimen.singleitem.synchronize",
-		LogisticProviderId: req.OwnerCode,
+		LogisticProviderId: req.LogisticProviderId,
 		ToCode:             "",
 		PartnerCode:        "",
 		FromCode:           "",

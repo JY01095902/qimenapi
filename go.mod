@@ -1,4 +1,4 @@
-module github.com/jy01095902/topapi
+module github.com/jy01095902/qimenapi
 
 go 1.16
 
